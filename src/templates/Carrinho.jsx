@@ -22,7 +22,7 @@ export default function Carrinho(props) {
                     backgroundColor: "inherit",
                     border: '0px',
                 }
-                } type='button'>
+                } type='button' onClick={()=>{props.setMostrarLista(true)}}>
                     <svg xmlns="http://www.w3.org/2000/svg"
                         width="32"
                         height="32"

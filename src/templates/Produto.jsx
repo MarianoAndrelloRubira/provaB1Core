@@ -74,12 +74,15 @@ export default function Produto(props){
                         width: '120px',
                     }}
                     type='button' onClick={()=>{
-                        props.setListaProdutos([...props.listaProdutosCarrinho,
-                            {id:props.produto.id,
+                        const produtoAdicionado = {
+                            id:props.produto.id,
                              titulo:props.produto.title,
                              descricao:props.produto.description,
                              quantidade:quantidade,
-                             preco:props.produto.price}]);
+                             preco:props.produto.price}
+                             const novaListaCarrinho = [...props.listaProdutosCarrinho,produtoAdicionado];
+                            props.setListaProdutos(novaListaCarrinho);
+                             localStorage.setItem('carrinho',JSON.stringify(novaListaCarrinho));
                     }}>
                         Comprar
                 </button>
