@@ -3,7 +3,11 @@ import BarraBusca from "./templates/BarraBusca";
 import Cabecalho from "./templates/Cabecalho";
 import { useEffect, useState } from "react";
 
-function App() {
+function App() 
+
+{
+
+  const [listaProdutos, setListaProdutos] = useState([]);
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((resposta) => resposta.json())
@@ -16,8 +20,8 @@ function App() {
   return (
     <div className="App">
       <Cabecalho/>
-      <BarraBusca/>
-      <GradeProdutos listaProdutos={produtos}/>
+      <BarraBusca qtdCarrinho = {listaProdutos.length}/>
+      <GradeProdutos listaProdutos={produtos} setListaProdutos={setListaProdutos} listaProdutosCarrinho={listaProdutos}/>
     </div>
   );
 }

@@ -73,7 +73,14 @@ export default function Produto(props){
                         height: '40px',
                         width: '120px',
                     }}
-                    type='button'>
+                    type='button' onClick={()=>{
+                        props.setListaProdutos([...props.listaProdutosCarrinho,
+                            {id:props.produto.id,
+                             titulo:props.produto.title,
+                             descricao:props.produto.description,
+                             quantidade:quantidade,
+                             preco:props.produto.price}]);
+                    }}>
                         Comprar
                 </button>
             </div>
